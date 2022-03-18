@@ -11,11 +11,11 @@ export default function LoginPage() {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    auth.signIn(email, password).then(()=>{
-      router.push('/dashboard')
-    })
-    console.log(email, password)
-  }
+    auth.signIn(email, password).then(() => {
+      router.push('/dashboard');
+    });
+    console.log(email, password);
+  };
   return (
     <>
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">

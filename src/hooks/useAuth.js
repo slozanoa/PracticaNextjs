@@ -31,14 +31,21 @@ function useProvideAuth() {
       axios.defaults.headers.Authorization = `Bearer ${token}`;
       const { data: user } = await axios.get(endPoints.auth.profile);
       setUser({
-        name:'santiago lozano',
-        email:'santiago@lozano.com'
-      },);
+        name: 'santiago lozano',
+        email: 'santiago@lozano.com',
+      });
     }
+  };
+  const logout = () => {
+    Cookie.remove('token');
+    setUser(null);
+    delete axios.defaults.headers.Authorization;
+    window.location.href = '/login';
   };
 
   return {
     user,
     signIn,
+    logout,
   };
 }
